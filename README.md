@@ -1,74 +1,61 @@
-# React Native Expo Tailwind Template
+# Estate App - React Native Expo
 
-A clean starter template for building mobile apps with Expo Router, React Native, TypeScript, and Tailwind styling through NativeWind.
+A premium Real Estate application built with Expo Router, React Native, TypeScript, and NativeWind. This project uses the latest `unstable-native-tabs` for a truly native feel on both iOS and Android.
+
+## Features
+
+- **Native Tabs**: Uses `expo-router/unstable-native-tabs` for native performance.
+- **Cross-Platform Icons**: Supports SF Symbols on iOS and Material/Ionicons on Android.
+- **Safe Area Management**: Fully optimized for notches and system bars using `react-native-safe-area-context`.
+- **Modern Styling**: Styled with NativeWind (Tailwind CSS) for a clean, professional UI.
+- **Dynamic Status Bar**: Automatically adjusts visibility for battery and network indicators.
 
 ## Tech Stack
 
-- Expo 54 with Expo Router
-- React Native 0.81
-- React 19
-- TypeScript
-- NativeWind and Tailwind CSS
-- Safe area support for modern devices
+- **Framework**: Expo 54 (SDK 54)
+- **Routing**: Expo Router (Native Tabs)
+- **Styling**: NativeWind & Tailwind CSS
+- **Icons**: @expo/vector-icons (Ionicons) & SF Symbols
+- **Language**: TypeScript
 
 ## Getting Started
 
-Install dependencies:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm install
-```
+2. **Start the development server**:
+   ```bash
+   npm start
+   ```
 
-Start the Expo development server:
-
-```bash
-npm start
-```
-
-Run on a target platform:
-
-```bash
-npm run android
-npm run ios
-npm run web
-```
+3. **Run on your platform**:
+   - Press `a` for Android (Emulator or Device)
+   - Press `i` for iOS (Simulator or Device)
 
 ## Project Structure
 
 ```text
 app/
-  _layout.tsx      App router layout
-  index.tsx        Home screen
-global.css         Tailwind entry file
-tailwind.config.js Tailwind and NativeWind config
-babel.config.js    NativeWind Babel setup
-metro.config.js    NativeWind Metro setup
+  (root)/
+    (tabs)/
+      _layout.tsx    - Native tabs configuration
+      index.tsx      - Home screen
+      search.tsx     - Search screen
+      saved.tsx      - Saved properties
+      profile.tsx    - User profile
+  _layout.tsx        - Root provider setup (SafeArea, StatusBar)
+  index.tsx          - App entry redirect
+global.css           - Tailwind styles
 ```
 
-## Tailwind Usage
+## Platform Specifics
 
-Use Tailwind classes directly with `className` on React Native components:
+### Icons
+The app uses a hybrid icon approach in `app/(root)/(tabs)/_layout.tsx`:
+- **iOS**: Uses `sf` prop for high-quality system symbols.
+- **Android**: Uses `androidSrc` with `VectorIcon` for Material Design consistency.
 
-```tsx
-<View className="flex-1 items-center justify-center bg-white">
-  <Text className="text-2xl font-bold text-slate-900">Hello Expo</Text>
-</View>
-```
-
-Tailwind scans these paths:
-
-```js
-content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"]
-```
-
-## Useful Scripts
-
-- `npm start` - start Expo
-- `npm run android` - open on Android
-- `npm run ios` - open on iOS
-- `npm run web` - open on web
-- `npm run lint` - run Expo linting
-
-## Notes
-
-This template is intentionally minimal. Start building from `app/index.tsx`, add shared UI in a `components/` folder, and extend colors or fonts in `tailwind.config.js` as your app grows.
+---
+Built with ❤️ for a premium estate experience.
